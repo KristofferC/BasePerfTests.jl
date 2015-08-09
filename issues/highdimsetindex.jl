@@ -1,10 +1,8 @@
 #----------------------------------------------------------------------
-# Test name: IS9622_highdimsetindex
+# Test name: highdimsetindex
 #
-# Issue/PR: https://github.com/JuliaLang/julia/issues/9622
-#
-# Description:
 # The setindex! function is not inlined for higher dimension arrays.
+# Issue: https://github.com/JuliaLang/julia/issues/9622
 #
 # Parameters:
 # n         times to set the index
@@ -12,7 +10,7 @@
 
 using Benchmarks
 
-function IS9622_highdimsetindex(n)
+function bench_highdimsetindex(n)
     A = Array(Float64, (1,1,1,1,1,1,1,1))
     for i in 1:n
         A[1,1,1,1,1,1,1,1] = 1.0
@@ -26,5 +24,5 @@ function IS9622_highdimsetindex(n)
     =#
 end
 
-r = @benchmark IS9622_highdimsetindex(10000)
+r = @benchmark bench_highdimsetindex(10000)
 println(r)
