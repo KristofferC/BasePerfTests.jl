@@ -15,5 +15,5 @@ function bench_split(n)
     r = @benchmark split(s)
 end
 
-r = bench_split(8)
+r = bench_split(6)
 println(r)
